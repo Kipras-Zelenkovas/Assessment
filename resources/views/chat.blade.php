@@ -9,6 +9,9 @@
     </head>
     <body class="antialiased">
         <div class="">
+
+            <h1>Hello {{Auth::user()->userName}}</h1>
+
             <form method="POST" action="/test">
                 @csrf
 
@@ -21,6 +24,11 @@
                 </select>
 
                 <input type="submit" name="submit" id="submit">
+            </form>
+
+            <form method="POST" action="/auth/logout">
+                @csrf
+                <input type="submit" value="Logout">
             </form>
         </div>
     </body>
