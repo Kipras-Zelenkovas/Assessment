@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chats;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use OpenAI\Laravel\Facades\OpenAI;
 
 class Test extends Controller
@@ -17,7 +19,7 @@ class Test extends Controller
                 'question'      => 'required|string'
             ]);
 
-            $typeOfAnswer   = " Answer in " . $request->typeOfAnswer . " way.";
+            $typeOfAnswer   = ' Answer in ' . $request->typeOfAnswer . ' way.';
             $question       = $request->question;
 
             $data = OpenAI::chat()->create([
@@ -28,9 +30,18 @@ class Test extends Controller
                 ]],
             ]);
 
-            return response()->json($data);
-        } catch (\Throwable $th) {
+            $chat = Chats::create([
+                'user_id'   => Auth::id(),
+                'question'  => $question . $typeOfAnswer,
+                'answer'    => $data['choices'][0]['message']['content']
+            ]);
+
+            $chat->save();
+
             return redirect()->back();
+        } catch (\Throwable $th) {
+            // return redirect()->back();
+            return response()->json($th->getMessage());
         }
     }
 }

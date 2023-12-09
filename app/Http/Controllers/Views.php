@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chats;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Views extends Controller
 {
@@ -19,6 +21,8 @@ class Views extends Controller
 
     public function chat()
     {
-        return view('/chat');
+        $chats = Chats::where('user_id', Auth::id())->get();
+
+        return view('/chat', ['chats' => $chats]);
     }
 }
