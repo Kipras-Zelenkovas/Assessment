@@ -2,7 +2,126 @@
     height: 80%;
 }
 
+.chat {
+    margin-top: 2em;
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chats {
+    border: 2px solid rgb(39, 39, 39);
+    width: 50%;
+    height: 100%;
+    overflow: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    padding: 1em;
+    border-radius: 10px;
+    background-color: rgb(39, 39, 39);
+}
+
+.chats::-webkit-scrollbar {
+    display: none;
+}
+
+.divChatBot {
+    display: flex;
+    width: max-content;
+    max-width: 70%;
+}
+
+.chatBot {
+    border: 2px solid rgb(207, 207, 207);
+    padding: 0.4em;
+    border-radius: 10px;
+    background-color: rgb(207, 207, 207);
+    box-shadow: 1px 1px 10px 0px rgb(207, 207, 207);
+    color: rgb(39, 39, 39);
+    text-align: left;
+}
+
+.divChatUser {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.chatUser {
+    border: 2px solid rgb(207, 207, 207);
+    padding: 0.4em;
+    border-radius: 10px;
+    width: max-content;
+    max-width: 70%;
+    background-color: rgb(207, 207, 207);
+    box-shadow: 1px 1px 10px 0px rgb(207, 207, 207);
+    color: rgb(39, 39, 39);
+    text-align: right;
+}
+
+.chatFormBox {
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.chatForm {
+    display: flex;
+    align-items: center;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    background-color: rgb(39, 39, 39);
+    border-radius: 18px;
+    box-shadow: 8px 8px 20px 0px black;
+}
+
 .chatBox {
-    height: 160px;
-    overflow: auto;
+    width: auto;
+    height: 2.5em;
+    padding: 0.6em;
+    margin-left: 1em;
+    margin-right: 1em;
+    resize: none;
+    border-radius: 18px;
+    font-size: 1em;
+}
+
+.chatBox:focus {
+    outline: none;
+}
+
+.chatType {
+    height: min-content;
+    padding: 0.4em;
+    border-radius: 10px;
+    font-size: 0.9em;
+}
+
+.chatType:hover {
+    cursor: pointer;
+}
+
+.chatType:focus {
+    outline: none;
+}
+
+.chatSend {
+    height: min-content;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.chatSend:hover {
+    cursor: pointer;
+    background-color: rgb(207, 207, 207);
 }

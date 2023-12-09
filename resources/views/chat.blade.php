@@ -6,29 +6,37 @@
 
 @section('content')
     <div class="home">
-        <div class="chatBox">
-            @foreach ($chats as $chat)
-                <div>
+        <div class="chat">
+            <div class="chats">
+                @foreach ($chats as $chat)
                     <div>
-                        <p style="color: red; text-align: right">{{$chat->question}}</p>
-                        <p style="color: blue; text-align: left">{{$chat->answer}}</p>
+                        <div>
+                            <div class="divChatUser">
+                                <p class="chatUser">{{$chat->question}}</p>
+                            </div>
+                            <div class="divChatBot">
+                                <p class="chatBot">{{$chat->answer}}</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
 
-        <form method="POST" action="/test">
+        <div class="chatFormBox">
+            <form class="chatForm" method="POST" action="/test">
             @csrf
 
-            <textarea name="question" id="question" cols="30" rows="10"></textarea>
-
-            <select name="typeOfAnswer" id="typeOfAnswer">
+            <select class="chatType" name="typeOfAnswer" id="typeOfAnswer">
                 <option value="formal">Formal</option>
                 <option value="friendly">Friendly</option>
                 <option value="humorous">Humorous</option>
             </select>
 
-            <input type="submit" name="submit" id="submit">
+            <textarea class="chatBox" name="question" id="question" cols="80" rows="1"></textarea>
+
+            <input class="chatSend" type="submit" name="submit" id="submit" value="Send">
         </form>
+        </div>
     </div>
 @endsection
