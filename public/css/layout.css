@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    background-color: rgb(215, 215, 215);
+}
+
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    width: 100vw;
+    height: 3em;
+    background-color: black;
+    color: white;
+}
+
+.navLogoutForm {
+    height: 100%;
+}
+
+.navLogout {
+    padding: 1em;
+    height: 100%;
+    border: 0;
+    font-size: 1em;
+    background-color: rgb(39, 39, 39);
+    color: white;
+    font-weight: bold;
+}
+
+.navLogout:hover {
+    background-color: rgb(73, 73, 73);
+    cursor: pointer;
+}
+
+.navItem {
+    padding: 1em;
+    font-size: 1em;
+    background-color: rgb(39, 39, 39);
+    color: white;
+    font-weight: bold;
+}
+
+.navItem:hover {
+    background-color: rgb(73, 73, 73);
+}
+
+.content {
+    width: 100%;
+}

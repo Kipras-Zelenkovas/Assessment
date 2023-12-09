@@ -1,35 +1,34 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
-        
-        <link rel="stylesheet" href={{asset('css/app.css')}}>
-    </head>
-    <body class="antialiased">
-        <div class="">
+@extends('layouts.default')
 
-            <h1>Hello {{Auth::user()->userName}}</h1>
+<link rel="stylesheet" href={{asset('css/home.css')}}>
 
-            <form method="POST" action="/test">
-                @csrf
+@section('title', 'Home')
 
-                <textarea name="question" id="question" cols="30" rows="10"></textarea>
-
-                <select name="typeOfAnswer" id="typeOfAnswer">
-                    <option value="formal">Formal</option>
-                    <option value="friendly">Friendly</option>
-                    <option value="humorous">Humorous</option>
-                </select>
-
-                <input type="submit" name="submit" id="submit">
-            </form>
-
-            <form method="POST" action="/auth/logout">
-                @csrf
-                <input type="submit" value="Logout">
-            </form>
+@section('content')
+    <div class="home">
+        <div class="chatBox">
+            @foreach ($chats as $chat)
+                <div>
+                    <div>
+                        <p style="color: red; text-align: right">{{$chat->question}}</p>
+                        <p style="color: blue; text-align: left">{{$chat->answer}}</p>
+                    </div>
+                </div>
+            @endforeach
         </div>
-    </body>
-</html>
+
+        <form method="POST" action="/test">
+            @csrf
+
+            <textarea name="question" id="question" cols="30" rows="10"></textarea>
+
+            <select name="typeOfAnswer" id="typeOfAnswer">
+                <option value="formal">Formal</option>
+                <option value="friendly">Friendly</option>
+                <option value="humorous">Humorous</option>
+            </select>
+
+            <input type="submit" name="submit" id="submit">
+        </form>
+    </div>
+@endsection
