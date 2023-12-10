@@ -40,8 +40,8 @@ class Test extends Controller
 
             return redirect('/');
         } catch (\Throwable $th) {
-            // return redirect()->back();
-            return response()->json($th->getMessage());
+            return redirect('/');
+            // return response()->json($th->getMessage());
         }
     }
 }
