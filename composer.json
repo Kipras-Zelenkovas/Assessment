@@ -7,7 +7,6 @@
         "framework"
     ],
     "license": "MIT",
-    "ext-pdo_sqlite": "*",
     "require": {
         "php": "^8.1",
         "guzzlehttp/guzzle": "^7.2",
