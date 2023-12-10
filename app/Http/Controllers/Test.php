@@ -38,7 +38,7 @@ class Test extends Controller
 
             $chat->save();
 
-            return redirect()->back();
+            return redirect('/');
         } catch (\Throwable $th) {
             // return redirect()->back();
             return response()->json($th->getMessage());
