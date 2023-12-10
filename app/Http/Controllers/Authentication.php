@@ -29,8 +29,8 @@ class Authentication extends Controller
 
             return redirect('/auth/login');
         } catch (\Throwable $th) {
-            // return redirect('/auth/register');
-            return response()->json($th->getMessage());
+            return redirect('/auth/register');
+            // return response()->json($th->getMessage());
         }
     }
 
